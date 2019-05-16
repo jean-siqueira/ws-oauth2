@@ -14,7 +14,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ws-oauth2</name>
 	<description>REST Spring Boot, Spring Security Oauth2</description>
-
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
