@@ -2,10 +2,15 @@ package com.jean.curso.ws.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class User implements Serializable {
 
 	private static final long serialVersionUID = -773887195356694554L;
 
+	@Id
 	private String id;
 	private String firstName;
 	private String lastName;
