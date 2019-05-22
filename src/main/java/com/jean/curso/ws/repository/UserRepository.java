@@ -1,4 +1,4 @@
-package com.jean.curso.repository;
+package com.jean.curso.ws.repository;
 
 import java.util.Optional;
 
