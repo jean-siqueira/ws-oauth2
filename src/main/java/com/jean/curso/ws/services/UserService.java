@@ -40,4 +40,8 @@ public class UserService {
 				 .orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado!"));
 	}
 	
+	public void delete(String id) {
+		userRepository.deleteById(id);
+	}
+	
 }

@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jean.curso.ws.domain.Role;
 import com.jean.curso.ws.domain.User;
 import com.jean.curso.ws.dto.UserDTO;
 import com.jean.curso.ws.services.UserService;
@@ -49,6 +51,18 @@ public class UserResource {
 		User user = userService.fromDto(userDTO);
 		user.setId(id);
 		return ResponseEntity.ok().body(new UserDTO(userService.update(user)));
+	}
+	
+	@DeleteMapping("/users/{id}")
+	public ResponseEntity<Void> delete(@PathVariable String id) {
+		userService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping("/users/{id}/roles")
+	public ResponseEntity<List<Role>> findRoles(@PathVariable String id){
+		User user = userService.findById(id);
+		return ResponseEntity.ok().body(user.getRoles());
 	}
 	
 }
